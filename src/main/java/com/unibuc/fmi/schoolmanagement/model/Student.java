@@ -1,12 +1,12 @@
 package com.unibuc.fmi.schoolmanagement.model;
 
 import com.unibuc.fmi.schoolmanagement.enums.EProfile;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.validation.constraints.Min;
+import lombok.*;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Data
 @Builder
@@ -18,12 +18,27 @@ public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private int grade;
+    @Min(7)
+    @NonNull
+    private int age;
+    @NonNull
+    private String firstName;
+    @NonNull
+    private String lastName;
+    @NonNull
+    private String email;
     private EProfile profile;
-    private int totalMissingClasses;
 
-    @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "user_id")
-    private User user;
+    @OneToMany(mappedBy = "student")
+    private List<Book> books;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "classroom_id")
+    private Classroom classroom;
+
+    @OneToMany(mappedBy = "student", fetch = FetchType.LAZY)
+    private List<Grades> grades;
+
+    @OneToMany(mappedBy = "student", fetch = FetchType.LAZY)
+    private List<Attendance> attendances;
 }

@@ -1,35 +1,30 @@
 package com.unibuc.fmi.schoolmanagement.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import jakarta.persistence.*;
-
-import java.util.List;
+import java.time.LocalDate;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="teachers")
-public class Teacher {
+@Table(name="attendances")
+public class Attendance {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private int yearsOfExperience;
-    private String firstName;
-    private String lastName;
-    private int numberOfOlympics;
-
-    @OneToMany(mappedBy = "teacher", fetch = FetchType.EAGER)
-    @JsonIgnore
-    private List<TeacherClassrooms> classrooms;
+    private LocalDate date;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "subject_id")
     private Subject subject;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "student_id")
+    private Student student;
 }
