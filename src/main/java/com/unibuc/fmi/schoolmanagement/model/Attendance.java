@@ -20,11 +20,9 @@ public class Attendance {
     private int id;
     private LocalDate date;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "subject_id")
+    @ManyToOne
     private Subject subject;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "student_id")
+    @ManyToOne
     private Student student;
 }

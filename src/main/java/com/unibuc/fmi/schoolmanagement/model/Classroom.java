@@ -24,9 +24,10 @@ public class Classroom {
     private String name;
 
     @OneToMany(mappedBy = "classroom", fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<Student> students;
 
     @OneToMany(mappedBy = "classroom", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JsonIgnore
-    private List<TeacherClassrooms> teachers;
+    private List<TeacherClassroom> teachers;
 }

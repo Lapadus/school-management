@@ -14,6 +14,6 @@ import java.io.Serializable;
 @AllArgsConstructor
 @Embeddable
 public class TeacherClassroomId implements Serializable {
-    private int classId;
+    private int classroomId;
     private int teacherId;
 }

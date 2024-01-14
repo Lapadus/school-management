@@ -1,5 +1,6 @@
 package com.unibuc.fmi.schoolmanagement.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,6 +24,7 @@ public class Subject {
     private boolean isMandatory;
 
     @OneToMany(mappedBy = "subject", fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<Teacher> teachers;
 
     @OneToMany(mappedBy = "subject", fetch = FetchType.LAZY)

@@ -1,5 +1,6 @@
 package com.unibuc.fmi.schoolmanagement.model;
 
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,9 +21,9 @@ public class Book {
     private int id;
     private String author;
     private String name;
-    private boolean isAvailable;
+    private boolean available;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "student_id")
+    @ManyToOne
     private Student student;
+
 }

@@ -25,11 +25,10 @@ public class Teacher {
     private String lastName;
     private int numberOfOlympics;
 
-    @OneToMany(mappedBy = "teacher", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "teacher", fetch = FetchType.LAZY)
     @JsonIgnore
-    private List<TeacherClassrooms> classrooms;
+    private List<TeacherClassroom> classrooms;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "subject_id")
+    @ManyToOne
     private Subject subject;
 }

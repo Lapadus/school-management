@@ -12,17 +12,15 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name="grades")
-public class Grades {
+public class Grade {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private int grade;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "student_id")
+    @ManyToOne
     private Student student;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "subject_id")
+    @ManyToOne
     private Subject subject;
 }

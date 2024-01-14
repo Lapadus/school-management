@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name="teachers_classrooms")
-public class TeacherClassrooms {
+public class TeacherClassroom {
     @EmbeddedId
     private TeacherClassroomId id;
 

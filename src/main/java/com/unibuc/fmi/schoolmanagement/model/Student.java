@@ -1,7 +1,7 @@
 package com.unibuc.fmi.schoolmanagement.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.unibuc.fmi.schoolmanagement.enums.EProfile;
-import jakarta.validation.constraints.Min;
 import lombok.*;
 
 import jakarta.persistence.*;
@@ -18,27 +18,23 @@ public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Min(7)
-    @NonNull
     private int age;
-    @NonNull
     private String firstName;
-    @NonNull
     private String lastName;
-    @NonNull
     private String email;
     private EProfile profile;
 
-    @OneToMany(mappedBy = "student")
+    @OneToMany(mappedBy = "student", fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<Book> books;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "classroom_id")
+    @ManyToOne
     private Classroom classroom;
 
     @OneToMany(mappedBy = "student", fetch = FetchType.LAZY)
-    private List<Grades> grades;
+    @JsonIgnore
+    private List<Grade> grades;
 
-    @OneToMany(mappedBy = "student", fetch = FetchType.LAZY)
-    private List<Attendance> attendances;
+//    @OneToMany(mappedBy = "student", fetch = FetchType.LAZY)
+//    private List<Attendance> attendances;
 }
