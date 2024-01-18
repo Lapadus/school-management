@@ -55,9 +55,9 @@ public class StudentService {
         return teacherDtos;
     }
 
-     public int addStudent(StudentDto studentDto) {
+     public Student addStudent(StudentDto studentDto) {
         Student student = studentMapper.mapToStudentFromStudentDto(studentDto);
-        return studentRepository.save(student).getId();
+        return studentRepository.save(student);
      }
 
      public int moveStudent(int studentId, int moveToClassroomId) {

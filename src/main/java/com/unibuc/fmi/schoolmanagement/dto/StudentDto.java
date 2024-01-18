@@ -25,4 +25,12 @@ public class StudentDto {
     @Email(message = "Email invalid")
     private String email;
     private EProfile profile;
+
+    public StudentDto(String lastName, String firstName, String email, EProfile profile, int age) {
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.email = email;
+        this.profile = profile;
+        this.age = age;
+    }
 }

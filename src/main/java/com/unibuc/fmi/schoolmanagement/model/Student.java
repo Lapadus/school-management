@@ -35,6 +35,14 @@ public class Student {
     @JsonIgnore
     private List<Grade> grades;
 
+    public Student(String lastName, String firstName, String email, EProfile profile, int age) {
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.email = email;
+        this.profile = profile;
+        this.age = age;
+    }
+
 //    @OneToMany(mappedBy = "student", fetch = FetchType.LAZY)
 //    private List<Attendance> attendances;
 }
