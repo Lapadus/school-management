@@ -2,8 +2,6 @@ package com.unibuc.fmi.schoolmanagement.service;
 
 import com.unibuc.fmi.schoolmanagement.dto.SubjectDto;
 import com.unibuc.fmi.schoolmanagement.mapper.SubjectMapper;
-import com.unibuc.fmi.schoolmanagement.model.Book;
-import com.unibuc.fmi.schoolmanagement.model.Grade;
 import com.unibuc.fmi.schoolmanagement.model.Subject;
 import com.unibuc.fmi.schoolmanagement.repository.SubjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;

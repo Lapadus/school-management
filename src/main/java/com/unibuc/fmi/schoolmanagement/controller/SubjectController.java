@@ -1,9 +1,8 @@
 package com.unibuc.fmi.schoolmanagement.controller;
 
-import com.unibuc.fmi.schoolmanagement.dto.AddGradeDto;
 import com.unibuc.fmi.schoolmanagement.dto.SubjectDto;
-import com.unibuc.fmi.schoolmanagement.dto.UpdateGrade;
 import com.unibuc.fmi.schoolmanagement.service.SubjectService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,6 +27,6 @@ public class SubjectController {
     public ResponseEntity<?> deleteSubjectById(@PathVariable int id){ subjectService.deleteSubjectById(id); return new ResponseEntity<>(HttpStatus.OK); }
 
     @PutMapping("/updateSubject")
-    public  ResponseEntity<?> updateSubject(@RequestBody SubjectDto subjectDto) { return new ResponseEntity<>(subjectService.updateSubject(subjectDto), HttpStatus.OK);}
+    public  ResponseEntity<?> updateSubject(@Valid @RequestBody SubjectDto subjectDto) { return new ResponseEntity<>(subjectService.updateSubject(subjectDto), HttpStatus.OK);}
 
 }

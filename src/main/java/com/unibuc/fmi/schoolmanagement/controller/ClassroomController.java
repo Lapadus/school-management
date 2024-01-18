@@ -2,6 +2,7 @@ package com.unibuc.fmi.schoolmanagement.controller;
 
 import com.unibuc.fmi.schoolmanagement.dto.ClassroomDto;
 import com.unibuc.fmi.schoolmanagement.service.ClassroomService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +22,6 @@ public class ClassroomController {
     public ResponseEntity<?> getClassrooms() {return new ResponseEntity<>(classroomService.getClassrooms(), HttpStatus.OK);}
 
     @PostMapping("/addClassroom")
-    public  ResponseEntity<?> addClassroom(@RequestBody ClassroomDto classroomDto) { return new ResponseEntity<>(classroomService.addClassroom(classroomDto), HttpStatus.OK);}
+    public  ResponseEntity<?> addClassroom(@Valid @RequestBody ClassroomDto classroomDto) { return new ResponseEntity<>(classroomService.addClassroom(classroomDto), HttpStatus.OK);}
 
 }

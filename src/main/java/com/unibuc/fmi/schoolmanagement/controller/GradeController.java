@@ -3,6 +3,7 @@ package com.unibuc.fmi.schoolmanagement.controller;
 import com.unibuc.fmi.schoolmanagement.dto.AddGradeDto;
 import com.unibuc.fmi.schoolmanagement.dto.UpdateGrade;
 import com.unibuc.fmi.schoolmanagement.service.GradeService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,12 +29,12 @@ public class GradeController {
     public ResponseEntity<?> getAverageGrade(@PathVariable int studentId, @PathVariable int subjectId) {return new ResponseEntity<>(gradeService.getAverageGrade(studentId, subjectId), HttpStatus.OK);}
 
     @PostMapping("/addGrade")
-    public  ResponseEntity<?> addGradeForSubject(@RequestBody AddGradeDto addGradeDto) { return new ResponseEntity<>(gradeService.addGradeForSubject(addGradeDto), HttpStatus.OK);}
+    public  ResponseEntity<?> addGradeForSubject(@Valid @RequestBody AddGradeDto addGradeDto) { return new ResponseEntity<>(gradeService.addGradeForSubject(addGradeDto), HttpStatus.OK);}
 
     @DeleteMapping("/deleteGrade/{id}")
     public ResponseEntity<?> deleteGradeById(@PathVariable int id){ gradeService.deleteGradeById(id); return new ResponseEntity<>(HttpStatus.OK); }
 
     @PutMapping("/updateGrade")
-    public  ResponseEntity<?> updateGrade(@RequestBody UpdateGrade updateGrade) { return new ResponseEntity<>(gradeService.modifyGrade(updateGrade.getGradeId(), updateGrade.getNewGrade()), HttpStatus.OK);}
+    public  ResponseEntity<?> updateGrade(@Valid @RequestBody UpdateGrade updateGrade) { return new ResponseEntity<>(gradeService.modifyGrade(updateGrade.getGradeId(), updateGrade.getNewGrade()), HttpStatus.OK);}
 
 }
