@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin(origins= {"*"}, maxAge = 4800, allowCredentials = "false" )
 @RequestMapping("/books")
 public class BookController {
     private final BookService bookService;

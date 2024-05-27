@@ -23,7 +23,7 @@ public class SubjectService {
 
     public List<Subject> getSubjects() {
         List<Subject> subjects = subjectRepository.findAll();
-        return subjects;
+        return subjectRepository.findAll();
     }
 
     public int addSubject(SubjectDto subjectDto){

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/grades")
+@CrossOrigin(origins= {"*"}, maxAge = 4800, allowCredentials = "false" )
 public class GradeController {
     private final GradeService gradeService;
 

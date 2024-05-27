@@ -11,7 +11,7 @@ public class TeacherMapper {
                 .id(teacherDto.getId())
                 .yearsOfExperience(teacherDto.getYearsOfExperience())
                 .lastName(teacherDto.getLastName())
-                .firstName(teacherDto.getLastName())
+                .firstName(teacherDto.getFirstName())
                 .numberOfOlympics(teacherDto.getNumberOfOlympics())
                 .build();
     }

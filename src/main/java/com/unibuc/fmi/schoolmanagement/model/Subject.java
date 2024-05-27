@@ -28,5 +28,6 @@ public class Subject {
     private List<Teacher> teachers;
 
     @OneToMany(mappedBy = "subject", fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<Attendance> attendances;
 }

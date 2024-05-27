@@ -16,9 +16,9 @@ public class TeacherDto {
     private int id;
     private int yearsOfExperience;
     @NotNull(message = "Can not be null")
-    @Max(value = 5, message = "Too long")
     private String firstName;
     @NotNull(message = "Can not be null")
     private String lastName;
+    private int subjectId;
     private int numberOfOlympics;
 }

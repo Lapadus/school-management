@@ -25,7 +25,7 @@ public class Teacher {
     private String lastName;
     private int numberOfOlympics;
 
-    @OneToMany(mappedBy = "teacher", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "teacher", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonIgnore
     private List<TeacherClassroom> classrooms;
 
